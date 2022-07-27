@@ -14,6 +14,10 @@ builder.Services.AddSingleton<PizzaService>();
 builder.Services.AddHttpClient();
 builder.Services.AddSqlite<PizzaStoreContext>("Data Source=pizza.db");
 
+// Add the AppState class
+builder.Services.AddScoped<PizzaSalesState>();
+builder.Services.AddScoped<OrderState>();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
